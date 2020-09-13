@@ -5,10 +5,11 @@ class Main {
 
     public static void Welcome(){
         System.out.println("This program is used to calculate the cost of a tiled floor.");
-        System.out.println("Please enter the cost of one tile.");
     }
 
     public static void tileEquation(){
+        System.out.println("Please enter the cost of one tile.");
+
         Scanner scan = new Scanner(System.in);
         double tileCost = scan.nextDouble();
         System.out.println("How many tiles are there lengthwise?");
@@ -17,6 +18,7 @@ class Main {
         System.out.println("How many tiles are there width wise?");
 
         double width = scan.nextDouble();
+
         double tileArea = length * width;
         double grandTotal = tileCost * tileArea;
 
@@ -26,9 +28,11 @@ class Main {
     public static void main(String[] args) {
 	Welcome();
 	try {
-	tileEquation();
-    } catch(Exception e) {
-        System.out.println("There was a problem with one of your inputs, please re-run the program.");
+        while (true) {
+            tileEquation();
         }
+    } catch(Exception e) {
+        System.out.println("There was a problem with one of your inputs. Please re-run the program.");
+    }
     }
 }
