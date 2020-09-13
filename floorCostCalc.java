@@ -1,12 +1,14 @@
 package com.company;
 import java.util.Scanner;
 
-public class Main {
+class Main {
 
-    public static void main(String[] args) {
-	Welcome();
-	try {
+    public static void Welcome(){
+        System.out.println("This program is used to calculate the cost of a tiled floor.");
+        System.out.println("Please enter the cost of one tile.");
+    }
 
+    public static void tileEquation(){
         Scanner scan = new Scanner(System.in);
         double tileCost = scan.nextDouble();
         System.out.println("How many tiles are there lengthwise?");
@@ -19,15 +21,14 @@ public class Main {
         double grandTotal = tileCost * tileArea;
 
         System.out.println("Your floor would cost " + grandTotal);
+    }
 
+    public static void main(String[] args) {
+	Welcome();
+	try {
+	tileEquation();
     } catch(Exception e) {
         System.out.println("There was a problem with one of your inputs, please re-run the program.");
         }
-
-
-    }
-    public static void Welcome(){
-        System.out.println("This program is used to calculate the cost of a tiled floor.");
-        System.out.println("Please enter the cost of one tile.");
     }
 }
