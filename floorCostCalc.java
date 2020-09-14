@@ -3,36 +3,30 @@ import java.util.Scanner;
 
 class Main {
 
-    public static void Welcome(){
-        System.out.println("This program is used to calculate the cost of a tiled floor.");
-    }
-
     public static void tileEquation(){
-        System.out.println("Please enter the cost of one tile.");
+        try {
+            System.out.println("Please enter the cost of one tile.");
 
-        Scanner scan = new Scanner(System.in);
-        double tileCost = scan.nextDouble();
-        System.out.println("How many tiles are there lengthwise?");
+            Scanner scan = new Scanner(System.in);
+            double grandTotal = scan.nextDouble();
+            System.out.println("How many tiles are there lengthwise?");
 
-        double length = scan.nextDouble();
-        System.out.println("How many tiles are there width wise?");
+            grandTotal *= scan.nextInt();
+            System.out.println("How many tiles are there width wise?");
 
-        double width = scan.nextDouble();
+            // Would be better to use DecimalFormat. 
+            grandTotal = ((int) (grandTotal * scan.nextInt() * 100.0)) / 100.0;
 
-        double tileArea = length * width;
-        double grandTotal = tileCost * tileArea;
-
-        System.out.println("Your floor would cost " + grandTotal);
+            System.out.println("Your floor would cost " + grandTotal);
+        } catch (Exception ignored) {
+            System.out.println("An unexpected error has occured.\nIt is likely that you inputted a value that doesnt belong somewhere.");
+        }
     }
 
     public static void main(String[] args) {
-	Welcome();
-	try {
-        while (true) {
+	System.out.println("This program is used to calculate the cost of a tiled floor.");
+	while (true) {
             tileEquation();
         }
-    } catch(Exception e) {
-        System.out.println("There was a problem with one of your inputs. Please re-run the program.");
-    }
     }
 }
